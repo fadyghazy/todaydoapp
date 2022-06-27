@@ -1,0 +1,26 @@
+import 'package:flutter/cupertino.dart';
+
+import 'task.dart';
+
+class TaskData extends ChangeNotifier{
+  List<Task>tasks=[
+    Task(name:"go shopping"),
+    Task(name:"buy a gift"),
+    Task(name:"repair the car")
+
+  ];
+  void addTask(String newTaskTitle){
+    tasks.add(Task(name:newTaskTitle));
+    notifyListeners();
+
+  }
+  void updateTask(Task task){
+    task.doneChange();
+    notifyListeners();
+  }
+  void removeTask(Task task){
+    tasks.remove(task);
+    notifyListeners();
+  }
+
+}
